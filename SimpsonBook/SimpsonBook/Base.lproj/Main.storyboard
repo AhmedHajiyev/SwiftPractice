@@ -52,9 +52,9 @@
                                 <rect key="frame" x="87" y="236" width="241" height="270"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeG-ol-6Kc">
-                                <rect key="frame" x="114" y="553" width="174" height="64"/>
+                                <rect key="frame" x="120" y="553" width="174" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="SLT-Y4-BUR"/>
+                                    <constraint firstAttribute="height" constant="64" id="wEV-UN-ggj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -63,7 +63,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPq-6W-wfg">
                                 <rect key="frame" x="120" y="625" width="174" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="2i2-W9-mGa"/>
+                                    <constraint firstAttribute="height" constant="64" id="G5F-T9-Act"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -73,16 +73,16 @@
                         <viewLayoutGuide key="safeArea" id="Quv-BS-l9d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WeG-ol-6Kc" firstAttribute="top" secondItem="BUJ-EI-ari" secondAttribute="bottom" constant="47" id="1ip-15-36y"/>
-                            <constraint firstItem="aPq-6W-wfg" firstAttribute="leading" secondItem="Quv-BS-l9d" secondAttribute="leading" constant="120" id="2gz-Nx-bj8"/>
-                            <constraint firstItem="BUJ-EI-ari" firstAttribute="centerX" secondItem="aPq-6W-wfg" secondAttribute="centerX" id="AJs-E2-t69"/>
-                            <constraint firstItem="WeG-ol-6Kc" firstAttribute="leading" secondItem="Quv-BS-l9d" secondAttribute="leading" constant="114" id="Ddp-ZW-3Cc"/>
-                            <constraint firstItem="Quv-BS-l9d" firstAttribute="trailing" secondItem="WeG-ol-6Kc" secondAttribute="trailing" constant="126" id="Geb-Ku-Xsc"/>
-                            <constraint firstItem="BUJ-EI-ari" firstAttribute="leading" secondItem="Quv-BS-l9d" secondAttribute="leading" constant="87" id="Lwt-qq-c8w"/>
-                            <constraint firstItem="BUJ-EI-ari" firstAttribute="top" secondItem="Quv-BS-l9d" secondAttribute="top" constant="148" id="V3p-JZ-CAF"/>
-                            <constraint firstItem="Quv-BS-l9d" firstAttribute="bottom" secondItem="aPq-6W-wfg" secondAttribute="bottom" constant="173" id="YlC-ry-uU3"/>
-                            <constraint firstItem="BUJ-EI-ari" firstAttribute="centerX" secondItem="gal-sT-fKf" secondAttribute="centerX" id="avW-pC-5ji"/>
-                            <constraint firstItem="aPq-6W-wfg" firstAttribute="top" secondItem="WeG-ol-6Kc" secondAttribute="bottom" constant="8" id="tyF-SB-Y7H"/>
+                            <constraint firstItem="Quv-BS-l9d" firstAttribute="bottom" secondItem="aPq-6W-wfg" secondAttribute="bottom" constant="173" id="7Cu-w5-FuI"/>
+                            <constraint firstItem="BUJ-EI-ari" firstAttribute="centerX" secondItem="gal-sT-fKf" secondAttribute="centerX" id="8kK-7c-nBD"/>
+                            <constraint firstItem="WeG-ol-6Kc" firstAttribute="top" secondItem="BUJ-EI-ari" secondAttribute="bottom" constant="47" id="RrS-u6-cWh"/>
+                            <constraint firstItem="BUJ-EI-ari" firstAttribute="leading" secondItem="Quv-BS-l9d" secondAttribute="leading" constant="87" id="Uf3-y4-ivJ"/>
+                            <constraint firstItem="BUJ-EI-ari" firstAttribute="top" secondItem="Quv-BS-l9d" secondAttribute="top" constant="148" id="XcQ-oJ-P1N"/>
+                            <constraint firstItem="WeG-ol-6Kc" firstAttribute="trailing" secondItem="aPq-6W-wfg" secondAttribute="trailing" id="bHO-tY-kXb"/>
+                            <constraint firstItem="BUJ-EI-ari" firstAttribute="centerX" secondItem="WeG-ol-6Kc" secondAttribute="centerX" id="cqE-Br-Pzd"/>
+                            <constraint firstItem="WeG-ol-6Kc" firstAttribute="leading" secondItem="aPq-6W-wfg" secondAttribute="leading" id="cyB-pW-sRq"/>
+                            <constraint firstItem="aPq-6W-wfg" firstAttribute="top" secondItem="WeG-ol-6Kc" secondAttribute="bottom" constant="8" id="dmO-Od-6iY"/>
+                            <constraint firstItem="WeG-ol-6Kc" firstAttribute="leading" secondItem="Quv-BS-l9d" secondAttribute="leading" constant="120" id="f8Q-Up-Y4k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2De-rd-W2Y"/>
