@@ -27,6 +27,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="foH-sU-ydR"/>
                     <connections>
+                        <outlet property="tableView" destination="oRK-Sn-otw" id="U3u-Ub-KV4"/>
                         <segue destination="WM4-Nh-gPB" kind="show" identifier="toDetailsVC" id="qc6-Xz-h1q"/>
                     </connections>
                 </viewController>

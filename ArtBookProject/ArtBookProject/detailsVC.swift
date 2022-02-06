@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class detailsVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,6 +59,33 @@ class detailsVC: UIViewController , UIImagePickerControllerDelegate, UINavigatio
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newPainting = NSEntityDescription.insertNewObject(forEntityName: "Paintings", into: context)
+        
+        //Attributes
+        newPainting.setValue(UUID(), forKey: "id")
+        newPainting.setValue(nameText.text!, forKey: "name")
+        newPainting.setValue(artistText.text!, forKey: "artist")
+        if let year = Int(yearText.text!) {
+            newPainting.setValue(year, forKey: "year")
+        }
+        let data = imageView.image!.jpegData(compressionQuality: 0.5)
+        newPainting.setValue(data, forKey: "image")
+        
+        do{
+            try context.save()
+            print("success")
+        }catch {
+            print("error")
+        }
+        
+        
+        NotificationCenter.default.post(name: NSNotification.Name("newData"), object: nil)
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     
