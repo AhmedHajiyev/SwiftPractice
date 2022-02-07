@@ -19,11 +19,77 @@ class detailsVC: UIViewController , UIImagePickerControllerDelegate, UINavigatio
     
     @IBOutlet weak var yearText: UITextField!
     
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
+    var chosenPainting = ""
+    var chosenPaintingId : UUID?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         // Do any additional setup after loading the view.
+        
+        
+        
+        if chosenPainting != "" {
+            
+            saveButton.isHidden = true
+            nameText.isEnabled = false
+            artistText.isEnabled = false
+            yearText.isEnabled = false
+            
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Paintings")
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            let idStirng = chosenPaintingId?.uuidString
+            fetchRequest.predicate = NSPredicate(format: "id = %@", idStirng!)
+            
+            
+            do {
+                           let results = try context.fetch(fetchRequest)
+                            
+                            if results.count > 0 {
+                                
+                                for result in results as! [NSManagedObject] {
+                                    
+                                    if let name = result.value(forKey: "name") as? String {
+                                        nameText.text = name
+                                    }
+
+                                    if let artist = result.value(forKey: "artist") as? String {
+                                        artistText.text = artist
+                                    }
+                                    
+                                    if let year = result.value(forKey: "year") as? Int {
+                                        yearText.text = String(year)
+                                    }
+                                    
+                                    if let imageData = result.value(forKey: "image") as? Data {
+                                        let image = UIImage(data: imageData)
+                                        imageView.image = image
+                                    }
+                                    
+                                }
+                            }
+
+                        } catch{
+                            print("error")
+                        }
+            
+        } else {
+            saveButton.isHidden = false
+            saveButton.isEnabled = false
+            nameText.text = ""
+            artistText.text = ""
+            yearText.text = ""
+        }
+        
+        
+        
         //Recognizers
         let gestureRecornizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecornizer)
@@ -51,6 +117,7 @@ class detailsVC: UIViewController , UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
+        saveButton.isEnabled = true
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -74,6 +141,7 @@ class detailsVC: UIViewController , UIImagePickerControllerDelegate, UINavigatio
         }
         let data = imageView.image!.jpegData(compressionQuality: 0.5)
         newPainting.setValue(data, forKey: "image")
+        
         
         do{
             try context.save()
